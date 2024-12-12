@@ -6,10 +6,25 @@ module.exports = {
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
+    colors: {
+      primary: {
+        100: "#d8ffe1",
+        300: "#28a74540",
+        500: "#28a7454d",
+        700: "#28a745",
+        900: "#10411b",
+      },
+      secondary: "#282828",
+      complementry: "#009eca",
+      red: "#d40000",
+      yellow: {
+        500: "#d1b9004d",
+        700: "#d1b900",
+      },
+    },
     extend: {
-      colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
+      fontFamily: {
+        vazirmatn: "var(--font-vazirmatn)",
       },
     },
   },
