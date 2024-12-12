@@ -1,4 +1,8 @@
 import { Vazirmatn } from "next/font/google";
+import { Toaster } from "react-hot-toast";
+
+import TanstakQueryProvider from "@/components/providers/TanstakQueryProvider";
+
 import "./globals.css";
 
 const vazirmatn = Vazirmatn({
@@ -14,7 +18,10 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="fa" dir="rtl" className={vazirmatn.className}>
-      <body className="font-vazirmatn font-normal">{children}</body>
+      <body className="font-vazirmatn font-normal">
+        <TanstakQueryProvider>{children}</TanstakQueryProvider>
+        <Toaster />
+      </body>
     </html>
   );
 }
