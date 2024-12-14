@@ -22,6 +22,12 @@ module.exports = {
         700: "#d1b900",
       },
     },
+    container: {
+      center: true,
+      padding: {
+        DEFAULT: ".75rem",
+      },
+    },
     extend: {
       fontFamily: {
         vazirmatn: "var(--font-vazirmatn)",

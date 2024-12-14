@@ -2,6 +2,9 @@ import { Vazirmatn } from "next/font/google";
 import { Toaster } from "react-hot-toast";
 
 import TanstakQueryProvider from "@/components/providers/TanstakQueryProvider";
+import Header from "@/components/layouts/header/Header";
+import Footer from "@/components/layouts/footer/Footer";
+import Icons from "@/components/modules/icons/Icons";
 
 import "./globals.css";
 
@@ -18,9 +21,16 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="fa" dir="rtl" className={vazirmatn.className}>
-      <body className="font-vazirmatn font-normal">
-        <TanstakQueryProvider>{children}</TanstakQueryProvider>
+      <body className="font-vazirmatn text-base font-normal text-secondary">
+        <TanstakQueryProvider>
+          <Icons />
+          <div className="relative">
+            <Header />
+            <main>{children}</main>
+            <Footer />
+          </div>
         <Toaster />
+        </TanstakQueryProvider>
       </body>
     </html>
   );
