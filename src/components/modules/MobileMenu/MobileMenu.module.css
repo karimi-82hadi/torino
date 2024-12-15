@@ -1,0 +1,13 @@
+.mobileMenu-enter {
+  transform: translateX(100%);
+}
+
+.mobileMenu-enter-active {
+  transform: translateX(0);
+  transition: all 0.3s ease;
+}
+
+.mobileMenu-exit-active {
+  transform: translateX(100%);
+  transition: all 0.3s ease;
+}

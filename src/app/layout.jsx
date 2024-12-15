@@ -2,9 +2,9 @@ import { Vazirmatn } from "next/font/google";
 import { Toaster } from "react-hot-toast";
 
 import TanstakQueryProvider from "@/components/providers/TanstakQueryProvider";
-import Header from "@/components/layouts/header/Header";
-import Footer from "@/components/layouts/footer/Footer";
-import Icons from "@/components/modules/icons/Icons";
+import Header from "@/components/layouts/Header/Header";
+import Footer from "@/components/layouts/Footer/Footer";
+import Icons from "@/components/modules/Icons/Icons";
 
 import "./globals.css";
 

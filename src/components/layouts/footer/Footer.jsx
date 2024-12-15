@@ -55,30 +55,35 @@ function Footer() {
             <div className="flex w-1/2 flex-row-reverse flex-wrap justify-center gap-[15px] lg:w-full lg:justify-start">
               <Image
                 src={aira}
+                alt="aira"
                 width={68}
                 height={74}
                 className="h-[38px] w-auto sm:h-[50px] md:h-[74px]"
               />
               <Image
                 src={samandehi}
+                alt="samandehi"
                 width={67}
                 height={74}
                 className="h-[38px] w-auto sm:h-[50px] md:h-[74px]"
               />
               <Image
                 src={ecunion}
+                alt="ecunion"
                 width={68}
                 height={74}
                 className="h-[38px] w-auto sm:h-[50px] md:h-[74px]"
               />
               <Image
                 src={passengerRights}
+                alt="passengerRights"
                 width={71}
                 height={74}
                 className="h-[38px] w-auto sm:h-[50px] md:h-[74px]"
               />
               <Image
                 src={stateAirline}
+                alt="stateAirline"
                 width={78}
                 height={74}
                 className="h-[38px] w-auto sm:h-[50px] md:h-[74px]"
