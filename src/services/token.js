@@ -7,7 +7,7 @@ async function getNewTokens() {
 
   try {
     const response = await api.post("/auth/refresh-token", {
-      refToken,
+      refreshToken: refToken,
     });
     return { response };
   } catch (error) {

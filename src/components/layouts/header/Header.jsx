@@ -10,10 +10,15 @@ import BackgroundOverlay from "@/components/modules/BackgroundOverlay/Background
 import AuthForm from "@/components/modules/AuthForm/AuthForm";
 
 import { addBodyPadding } from "@/utils/bodyPadding";
+import { useGetProfile } from "@/services/queries";
+import { e2p } from "@/utils/numbers";
 
 import logo from "@/public/images/torino-logo.png";
 
 function Header() {
+  const { data } = useGetProfile();
+  const mobile = data?.data.mobile;
+
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [authFormOpen, setAuthFormOpen] = useState(false);
 
@@ -35,7 +40,7 @@ function Header() {
             className="flex size-[40px] items-center justify-center"
             onClick={menuMobileHandler}
           >
-            <SVGIcon name="menu" className="h-[20px] w-[20px]" />
+            <SVGIcon name="menu" className="size-[20px]" />
           </button>
         </div>
         <div className="hidden lg:flex lg:w-4/6">
@@ -60,19 +65,68 @@ function Header() {
           </div>
         </div>
         <div className="flex w-2/3 items-center justify-end lg:w-2/6">
-          <button
-            onClick={authFormHandler}
-            className="flex size-[40px] items-center justify-center rounded-[8px] border border-primary-700 lg:hidden"
-          >
-            <SVGIcon name="login" className="size-[24px]" />
-          </button>
-          <button
-            onClick={authFormHandler}
-            className="hidden h-[44px] w-[166px] items-center justify-center rounded-[8px] border-2 border-primary-700 lg:flex"
-          >
-            <SVGIcon name="profile_1" className="ml-[5px] size-[24px]" />
-            <span className="text-[18px] text-primary-700">ورود | ثبت نام</span>
-          </button>
+          {mobile ? (
+            <div className="group/profile relative">
+              <button className="flex h-[38px] w-[146px] items-center justify-center gap-[5px] lg:h-[44px] lg:w-[180px] lg:gap-[10px]">
+                <SVGIcon
+                  name="profile_1_d"
+                  className="hidden size-[24px] lg:inline-block"
+                />
+                <SVGIcon name="profile_1_m" className="size-[14px] lg:hidden" />
+                <span className="text-[14px] text-primary-700 lg:text-[18px]">
+                  {e2p(mobile)}
+                </span>
+                <SVGIcon
+                  name="arrowDown_d"
+                  className="hidden size-[24px] lg:inline-block"
+                />
+                <SVGIcon name="arrowDown_m" className="size-[16px] lg:hidden" />
+              </button>
+              <div className="pointer-events-none absolute left-0 top-full h-[114px] w-[157px] overflow-hidden rounded-[11px] border border-black/10 bg-white opacity-0 transition-all duration-300 group-hover/profile:pointer-events-auto group-hover/profile:opacity-100">
+                <div className="flex items-center justify-between bg-[#F4F4F4] px-[10px] py-[8px]">
+                  <span className="flex size-[28px] items-center justify-center rounded-full bg-[#D9D9D9]">
+                    <SVGIcon name="profile_1_m_gray" className="size-[16px]" />
+                  </span>
+                  <span className="text-[14px] font-medium tracking-wide text-primary-900">
+                    {e2p(mobile)}
+                  </span>
+                </div>
+                <div>
+                  <Link
+                    href="/profile"
+                    className="flex items-center justify-between border-b border-black/10 px-[10px] py-[4px]"
+                  >
+                    <SVGIcon name="profile_0" className="size-[16px]" />
+                    <span className="text-[12px]">اطلاعات حساب کاربری</span>
+                  </Link>
+                  <button className="flex w-full items-center justify-between px-[10px] py-[4px]">
+                    <SVGIcon name="logout_m" className="size-[16px]" />
+                    <span className="text-[12px] text-red">
+                      خروج از حساب کاربری
+                    </span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          ) : (
+            <>
+              <button
+                onClick={authFormHandler}
+                className="flex size-[40px] items-center justify-center rounded-[8px] border border-primary-700 lg:hidden"
+              >
+                <SVGIcon name="login" className="size-[24px]" />
+              </button>
+              <button
+                onClick={authFormHandler}
+                className="hidden h-[44px] w-[166px] items-center justify-center rounded-[8px] border-2 border-primary-700 lg:flex"
+              >
+                <SVGIcon name="profile_1_d" className="ml-[5px] size-[24px]" />
+                <span className="text-[18px] text-primary-700">
+                  ورود | ثبت نام
+                </span>
+              </button>
+            </>
+          )}
         </div>
       </div>
       <MobileMenu mobileMenuOpen={mobileMenuOpen} />

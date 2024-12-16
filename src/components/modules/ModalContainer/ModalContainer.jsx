@@ -28,8 +28,8 @@ function ModalContainer({ state, setState, children }) {
       timeout={300}
       unmountOnExit
       classNames={cssTransitionClassName}
-      onEnter={() => modalInnerRef.current.classList.add("scale-100")}
-      onExit={() => modalInnerRef.current.classList.remove("scale-100")}
+      onEnter={() => modalInnerRef.current.classList.add("!scale-100")}
+      onExit={() => modalInnerRef.current.classList.remove("!scale-100")}
     >
       <div
         onClick={(e) => clickHandler(e)}

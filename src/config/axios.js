@@ -1,6 +1,6 @@
 import axios from "axios";
 
-import { getCookie } from "@/utils/cookie";
+import { getCookie, setCookie } from "@/utils/cookie";
 import { getNewTokens } from "@/services/token";
 
 const api = axios.create({
@@ -34,7 +34,7 @@ api.interceptors.response.use(
       originalRequest._retry = true;
       const res = await getNewTokens();
       
-      if (res?.response?.status === 201) {
+      if (res?.response?.status === 200) {
         setCookie("Torino::AccToken", res?.response?.data.accessToken, 30);
         return api(originalRequest);
       } else {
