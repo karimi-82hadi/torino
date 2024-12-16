@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import OtpInput from "react18-input-otp";
+import { useQueryClient } from "@tanstack/react-query";
 
 import Loading from "@/components/elements/Loading/Loading";
 
@@ -8,8 +9,9 @@ import { useCheckOtp, useSendOtp } from "@/services/mutations";
 import { setCookie } from "@/utils/cookie";
 import { e2p, p2e } from "@/utils/numbers";
 
-function CheckOtpForm({ phoneNumber }) {
+function CheckOtpForm({ phoneNumber, setAuthFormOpen }) {
   const initialTimeLeft = 120;
+  const queryClient = useQueryClient();
 
   const [code, setCode] = useState("");
   const [timeLeft, setTimeLeft] = useState(initialTimeLeft);
@@ -21,15 +23,13 @@ function CheckOtpForm({ phoneNumber }) {
 
   const { isPending, mutate } = useCheckOtp();
   const { mutate: sendOtp } = useSendOtp();
-
   const successHandler = (data) => {
     setDisableSubmitting(true);
     toast.success("با موفقیت وارد شدید");
     setCookie("Torino::AccToken", data?.data?.accessToken, 30);
     setCookie("Torino::RefToken", data?.data?.refreshToken, 365);
-    setTimeout(() => {
-      window.location.reload();
-    }, 2000);
+    queryClient.invalidateQueries({ queryKey: ["user-profile"] });
+    setAuthFormOpen(false);
   };
 
   const submitHandler = (code) => {

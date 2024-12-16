@@ -38,7 +38,7 @@ function ModalContainer({ state, setState, children }) {
       >
         <div
           ref={modalInnerRef}
-          className="h-[362px] w-[358px] scale-50 rounded-[20px] bg-white shadow-[0px_4px_4px_#00000040] transition-all duration-300 lg:w-[561px]"
+          className="h-auto w-[358px] scale-50 rounded-[20px] bg-white shadow-[0px_4px_4px_#00000040] transition-all duration-300 lg:w-[561px]"
         >
           {children}
         </div>

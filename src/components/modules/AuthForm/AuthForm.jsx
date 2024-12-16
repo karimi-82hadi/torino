@@ -19,7 +19,7 @@ function AuthForm({ authFormOpen, setAuthFormOpen }) {
 
   return (
     <ModalContainer state={authFormOpen} setState={setState}>
-      <div className="h-full p-[20px]">
+      <div className="h-[362px] p-[20px]">
         <div className="flex justify-end">
           {step === 1 && (
             <button
@@ -52,6 +52,7 @@ function AuthForm({ authFormOpen, setAuthFormOpen }) {
           <CheckOtpForm
             phoneNumber={phoneNumber}
             setPhoneNumber={setPhoneNumber}
+            setAuthFormOpen={setAuthFormOpen}
           />
         )}
       </div>

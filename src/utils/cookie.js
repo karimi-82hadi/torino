@@ -10,4 +10,8 @@ function getCookie(name) {
     ?.split("=")[1];
 }
 
-export { setCookie, getCookie };
+function removeCookie(name) {
+  document.cookie = `${name}=; max-age=0; path=/`;
+}
+
+export { setCookie, getCookie, removeCookie };

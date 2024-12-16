@@ -8,6 +8,7 @@ import SVGIcon from "@/components/elements/SVGIcon/SVGIcon";
 import MobileMenu from "@/components/modules/MobileMenu/MobileMenu";
 import BackgroundOverlay from "@/components/modules/BackgroundOverlay/BackgroundOverlay";
 import AuthForm from "@/components/modules/AuthForm/AuthForm";
+import LogoutConfirmation from "@/components/modules/LogoutConfirmation/LogoutConfirmation";
 
 import { addBodyPadding } from "@/utils/bodyPadding";
 import { useGetProfile } from "@/services/queries";
@@ -21,6 +22,7 @@ function Header() {
 
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [authFormOpen, setAuthFormOpen] = useState(false);
+  const [logoutModalOpen, setLogoutModalOpen] = useState(false);
 
   const menuMobileHandler = () => {
     addBodyPadding();
@@ -30,6 +32,11 @@ function Header() {
   const authFormHandler = () => {
     addBodyPadding();
     setAuthFormOpen(true);
+  };
+
+  const logoutModalHandler = () => {
+    addBodyPadding();
+    setLogoutModalOpen(true);
   };
 
   return (
@@ -82,26 +89,37 @@ function Header() {
                 />
                 <SVGIcon name="arrowDown_m" className="size-[16px] lg:hidden" />
               </button>
-              <div className="pointer-events-none absolute left-0 top-full h-[114px] w-[157px] overflow-hidden rounded-[11px] border border-black/10 bg-white opacity-0 transition-all duration-300 group-hover/profile:pointer-events-auto group-hover/profile:opacity-100">
-                <div className="flex items-center justify-between bg-[#F4F4F4] px-[10px] py-[8px]">
+              <div className="pointer-events-none absolute left-0 top-full h-[114px] w-[157px] overflow-hidden rounded-[11px] border border-black/10 bg-white opacity-0 transition-all duration-300 group-hover/profile:pointer-events-auto group-hover/profile:opacity-100 lg:h-[151px] lg:w-[246px]">
+                <div className="flex items-center gap-[15px] bg-[#F4F4F4] px-[10px] py-[8px]">
                   <span className="flex size-[28px] items-center justify-center rounded-full bg-[#D9D9D9]">
                     <SVGIcon name="profile_1_m_gray" className="size-[16px]" />
                   </span>
-                  <span className="text-[14px] font-medium tracking-wide text-primary-900">
+                  <span className="text-[14px] font-medium tracking-wide text-primary-900 lg:text-[16px]">
                     {e2p(mobile)}
                   </span>
                 </div>
                 <div>
                   <Link
                     href="/profile"
-                    className="flex items-center justify-between border-b border-black/10 px-[10px] py-[4px]"
+                    className="flex items-center gap-[10px] border-b border-black/10 px-[10px] py-[4px] lg:gap-[15px] lg:py-[14px]"
                   >
-                    <SVGIcon name="profile_0" className="size-[16px]" />
-                    <span className="text-[12px]">اطلاعات حساب کاربری</span>
+                    <SVGIcon
+                      name="profile_0"
+                      className="size-[16px] lg:size-[20px]"
+                    />
+                    <span className="text-[12px] lg:text-[14px]">
+                      اطلاعات حساب کاربری
+                    </span>
                   </Link>
-                  <button className="flex w-full items-center justify-between px-[10px] py-[4px]">
-                    <SVGIcon name="logout_m" className="size-[16px]" />
-                    <span className="text-[12px] text-red">
+                  <button
+                    className="flex w-full items-center gap-[10px] px-[10px] py-[4px] lg:gap-[15px] lg:py-[14px]"
+                    onClick={logoutModalHandler}
+                  >
+                    <SVGIcon
+                      name="logout_m"
+                      className="size-[16px] lg:size-[20px]"
+                    />
+                    <span className="text-[12px] text-red lg:text-[14px]">
                       خروج از حساب کاربری
                     </span>
                   </button>
@@ -132,6 +150,10 @@ function Header() {
       <MobileMenu mobileMenuOpen={mobileMenuOpen} />
       <BackgroundOverlay state={mobileMenuOpen} setState={setMobileMenuOpen} />
       <AuthForm authFormOpen={authFormOpen} setAuthFormOpen={setAuthFormOpen} />
+      <LogoutConfirmation
+        logoutModalOpen={logoutModalOpen}
+        setLogoutModalOpen={setLogoutModalOpen}
+      />
     </header>
   );
 }
