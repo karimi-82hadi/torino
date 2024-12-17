@@ -29,7 +29,7 @@ function Loading({ fill, width, height }) {
         <animate
           attributeName="opacity"
           dur="1.2s"
-          values=".3;.6;1;.3"
+          values=".3;1;.6;.3"
           calcMode="linear"
           repeatCount="indefinite"
         ></animate>
