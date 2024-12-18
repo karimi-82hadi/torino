@@ -1,4 +1,4 @@
-import TransactionsPage from "@/components/templates/TransactionsPage";
+import TransactionsPage from "@/components/templates/ProfilePage/TransactionsPage";
 
 function page() {
   return <TransactionsPage />;

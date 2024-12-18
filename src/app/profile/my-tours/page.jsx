@@ -1,4 +1,4 @@
-import MyToursPage from "@/components/templates/MyToursPage";
+import MyToursPage from "@/components/templates/ProfilePage/MyToursPage";
 
 function page() {
   return <MyToursPage />;

@@ -1,4 +1,4 @@
-import ProfilePage from "@/components/templates/ProfilePage";
+import ProfilePage from "@/components/templates/ProfilePage/ProfilePage";
 
 function Page() {
   return <ProfilePage />;

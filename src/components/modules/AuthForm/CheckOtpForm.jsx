@@ -8,6 +8,7 @@ import Loading from "@/components/elements/Loading/Loading";
 import { useCheckOtp, useSendOtp } from "@/services/mutations";
 import { setCookie } from "@/utils/cookie";
 import { e2p, p2e } from "@/utils/numbers";
+import { removeBodyPadding } from "@/utils/bodyPadding";
 
 function CheckOtpForm({ phoneNumber, setAuthFormOpen }) {
   const initialTimeLeft = 120;
@@ -30,6 +31,7 @@ function CheckOtpForm({ phoneNumber, setAuthFormOpen }) {
     setCookie("Torino::RefToken", data?.data?.refreshToken, 365);
     queryClient.invalidateQueries({ queryKey: ["user-profile"] });
     setAuthFormOpen(false);
+    removeBodyPadding();
   };
 
   const submitHandler = (code) => {
