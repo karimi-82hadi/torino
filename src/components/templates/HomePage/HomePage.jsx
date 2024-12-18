@@ -3,6 +3,7 @@ import Image from "next/image";
 import HomePageSearch from "@/components/modules/HomePage/HomePageSearch";
 
 import bgHeader from "@/public/images/bg-header.png";
+import HomePageTours from "@/components/modules/HomePage/HomePageTours";
 
 function HomePage() {
   return (
@@ -18,6 +19,7 @@ function HomePage() {
       </div>
       <div className="container w-full max-w-[1440px] px-[1.5rem]">
         <HomePageSearch />
+        <HomePageTours />
       </div>
     </>
   );

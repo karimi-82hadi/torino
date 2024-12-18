@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import SVGIcon from "@/components/elements/SVGIcon/SVGIcon";
 
@@ -19,7 +19,7 @@ function HomePageSearch() {
           className="gap-[10px] p-[10px] lg:grid lg:grid-cols-4"
         >
           <div className="col-span-3 grid w-[330px] grid-cols-2 gap-[10px] lg:w-auto lg:grid-cols-3 lg:divide-x lg:divide-x-reverse lg:divide-black/20">
-            <div className="relative px-[10px]">
+            <div className="relative lg:px-[10px]">
               <select
                 name=""
                 id="origin"
@@ -33,7 +33,7 @@ function HomePageSearch() {
                 <span>مبدا</span>
               </label>
             </div>
-            <div className="relative px-[10px]">
+            <div className="relative lg:px-[10px]">
               <select
                 name=""
                 id="destination"
@@ -47,7 +47,7 @@ function HomePageSearch() {
                 <span>مقصد</span>
               </label>
             </div>
-            <div className="relative col-span-2 px-[10px] lg:col-auto">
+            <div className="relative col-span-2 lg:col-auto lg:px-[10px]">
               <select
                 name=""
                 id="date"
