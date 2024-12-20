@@ -13,12 +13,12 @@ function HomePageSearch() {
         <span className="text-primary-700">تورینو</span> برگزار کننده بهترین تور
         های داخلی و خارجی
       </h2>
-      <div className="lg:w-[874px] lg:rounded-[20px] lg:border lg:border-black/15">
+      <div className="w-full lg:w-[874px] lg:rounded-[20px] lg:border lg:border-black/15">
         <form
           onSubmit={submitHandler}
-          className="gap-[10px] p-[10px] lg:grid lg:grid-cols-4"
+          className="w-full gap-[10px] p-[10px] lg:grid lg:grid-cols-4"
         >
-          <div className="col-span-3 grid w-[330px] grid-cols-2 gap-[10px] lg:w-auto lg:grid-cols-3 lg:divide-x lg:divide-x-reverse lg:divide-black/20">
+          <div className="col-span-3 mx-auto grid max-w-[330px] grid-cols-2 gap-[10px] lg:mx-0 lg:w-auto lg:max-w-full lg:grid-cols-3 lg:divide-x lg:divide-x-reverse lg:divide-black/20">
             <div className="relative lg:px-[10px]">
               <select
                 name=""
@@ -62,7 +62,7 @@ function HomePageSearch() {
               </label>
             </div>
           </div>
-          <div className="mt-[20px] lg:mt-0">
+          <div className="mx-auto mt-[20px] max-w-[330px] lg:mx-0 lg:mt-0 lg:max-w-full">
             <button
               type="submit"
               className="w-full rounded-[16px] bg-primary-700 p-[11.5px] text-center text-white"

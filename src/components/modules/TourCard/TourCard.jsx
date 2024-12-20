@@ -13,7 +13,7 @@ function TourCard({ data }) {
           src={image}
           width={327}
           height={159}
-          className="h-[159px] w-auto object-cover"
+          className="min-h-[159px] w-full object-cover"
           alt={title}
         />
       </div>
