@@ -6,6 +6,7 @@ import HomePageTours from "@/components/modules/HomePage/HomePageTours";
 import bgHeader from "@/public/images/bg-header.png";
 import bgBannerDesktop from "@/public/images/banner/banner-desktop.png";
 import bgBannerMobile from "@/public/images/banner/banner-mobile.png";
+import HomePageSlider from "@/components/modules/HomePage/HomePageSlider";
 
 function HomePage() {
   return (
@@ -29,15 +30,18 @@ function HomePage() {
               width={327}
               height={220}
               className="w-full lg:hidden"
+              alt="homepage banner"
             />
             <Image
               src={bgBannerDesktop}
               width={1188}
               height={251}
               className="hidden w-full lg:block"
+              alt="homepage banner"
             />
           </div>
         </div>
+        <HomePageSlider />
       </div>
     </>
   );

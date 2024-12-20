@@ -4,7 +4,6 @@ import Link from "next/link";
 
 function TourCard({ data }) {
   const { title, image, price, options } = data;
-  console.log(data);
 
   return (
     <div className="overflow-hidden rounded-[10px] border border-black/10">
