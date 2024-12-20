@@ -3,9 +3,9 @@ import { Toaster } from "react-hot-toast";
 
 import TanstakQueryProvider from "@/components/providers/TanstakQueryProvider";
 import AuthProvider from "@/components/providers/AuthProvider";
-import Header from "@/components/layouts/b/Header";
-import Footer from "@/components/layouts/a/Footer";
-import Icons from "@/components/modules/c/Icons";
+import Header from "@/components/layouts/Header/Header";
+import Footer from "@/components/layouts/Footer/Footer";
+import Icons from "@/components/modules/Icons/Icons";
 
 import "./globals.css";
 
