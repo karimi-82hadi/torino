@@ -1,9 +1,10 @@
-import { sp } from "@/utils/numbers";
 import Image from "next/image";
 import Link from "next/link";
 
+import { sp } from "@/utils/numbers";
+
 function TourCard({ data }) {
-  const { title, image, price, options } = data;
+  const { id, title, image, price, options } = data;
 
   return (
     <div className="overflow-hidden rounded-[10px] border border-black/10">
@@ -25,7 +26,7 @@ function TourCard({ data }) {
         </div>
         <div className="flex items-center justify-between border-t border-black/10 px-[10px] py-[5px]">
           <Link
-            href={`tours/${title}`}
+            href={`/tour/${id}`}
             className="h-[29px] w-[99px] rounded-[4px] bg-primary-700 text-center leading-[29px] text-white lg:w-[64px]"
           >
             رزور

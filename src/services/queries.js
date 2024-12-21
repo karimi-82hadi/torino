@@ -16,4 +16,11 @@ function useGetAllTours() {
   return useQuery({ queryKey, queryFn });
 }
 
-export { useGetProfile, useGetAllTours };
+function useGetTour(params) {
+  const queryFn = ({ queryKey }) => api.get(`/tour/${queryKey[1]}`);
+  const queryKey = ["tour", params];
+
+  return useQuery({ queryKey, queryFn });
+}
+
+export { useGetProfile, useGetAllTours, useGetTour };
