@@ -27,7 +27,7 @@ function SendOtpForm({ phoneNumber, setPhoneNumber, setStep }) {
       { mobile: p2e(phoneNumber) },
       {
         onSuccess: (data) => successHandler(data),
-        onError: (error) => toast.error(error.message),
+        onError: (error) => toast.error("خطا در برقراری ارتباط"),
       },
     );
   };

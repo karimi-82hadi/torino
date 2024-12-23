@@ -31,7 +31,7 @@ function CheckOtpForm({ phoneNumber, setAuthFormOpen }) {
     setCookie("Torino::RefToken", data?.data?.refreshToken, 365);
     queryClient.invalidateQueries({ queryKey: ["user-profile"] });
     setAuthFormOpen(false);
-    removeBodyPadding();
+    removeBodyPadding(300);
   };
 
   const submitHandler = (code) => {
