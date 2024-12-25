@@ -89,7 +89,7 @@ function Header() {
                 />
                 <SVGIcon name="arrowDown_m" className="size-[16px] lg:hidden" />
               </button>
-              <div className="pointer-events-none absolute left-0 top-full h-[114px] w-[157px] overflow-hidden rounded-[11px] border border-black/10 bg-white opacity-0 transition-all duration-300 group-hover/profile:pointer-events-auto group-hover/profile:opacity-100 lg:h-[151px] lg:w-[246px]">
+              <div className="pointer-events-none absolute left-0 top-full z-10 h-[114px] w-[157px] overflow-hidden rounded-[11px] border border-black/10 bg-white opacity-0 transition-all duration-300 group-hover/profile:pointer-events-auto group-hover/profile:opacity-100 lg:h-[151px] lg:w-[246px]">
                 <div className="flex items-center gap-[15px] bg-[#F4F4F4] px-[10px] py-[8px]">
                   <span className="flex size-[28px] items-center justify-center rounded-full bg-[#D9D9D9]">
                     <SVGIcon name="profile_1_m_gray" className="size-[16px]" />
@@ -98,7 +98,7 @@ function Header() {
                     {e2p(mobile)}
                   </span>
                 </div>
-                <div>
+                <div className="bg-white">
                   <Link
                     href="/profile"
                     className="flex items-center gap-[10px] border-b border-black/10 px-[10px] py-[4px] lg:gap-[15px] lg:py-[14px]"
