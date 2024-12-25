@@ -30,4 +30,17 @@ function useGetUserTours() {
   return useQuery({ queryKey, queryFn });
 }
 
-export { useGetProfile, useGetAllTours, useGetTour, useGetUserTours };
+function useGetUserTransactions() {
+  const queryFn = () => api.get("/user/transactions");
+  const queryKey = ["user-transactions"];
+
+  return useQuery({ queryKey, queryFn });
+}
+
+export {
+  useGetProfile,
+  useGetAllTours,
+  useGetTour,
+  useGetUserTours,
+  useGetUserTransactions,
+};
