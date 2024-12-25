@@ -32,11 +32,11 @@ function BankInfo({ data }) {
             <tbody className="grid-cols-2 lg:grid">
               <tr className="*:text-[14px] lg:*:inline-block">
                 <td className="w-1/3 sm:w-1/2 lg:w-1/3">شماره کارت</td>
-                <td>{debitCard_code ? e2p(debitCard_code) : "_"}</td>
+                <td> {accountIdentifier ? e2p(accountIdentifier) : "_"}</td>
               </tr>
               <tr className="*:text-[14px] lg:*:inline-block">
                 <td className="w-1/3 sm:w-1/2 lg:w-1/3">شماره حساب</td>
-                <td>{accountIdentifier ? e2p(accountIdentifier) : "_"}</td>
+                <td>{debitCard_code ? e2p(debitCard_code) : "_"}</td>
               </tr>
               <tr className="*:text-[14px] lg:*:inline-block">
                 <td className="w-1/3 sm:w-1/2 lg:w-1/3">شماره شبا</td>
