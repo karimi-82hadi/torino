@@ -8,8 +8,8 @@ export const metadata = {
 
 function ProfilePageLayout({ children }) {
   return (
-    <div className="container mb-[50px] w-full max-w-[1440px] px-[1.5rem] lg:mt-[30px] lg:flex lg:justify-between lg:px-[.75rem]">
-      <aside className="overflow-hidden lg:w-[284px] lg:rounded-[10px] lg:border lg:border-black/20">
+    <div className="container mb-[50px] w-full max-w-[1440px] px-[1.5rem] lg:mt-[30px] lg:flex lg:justify-between lg:gap-[30px] lg:px-[.75rem]">
+      <aside className="h-fit overflow-hidden lg:w-[284px] lg:rounded-[10px] lg:border lg:border-black/20">
         <ul className="flex items-center justify-between border-b border-black/25 lg:flex-col lg:items-start lg:border-none">
           <li className="transition-all duration-300 lg:w-full lg:px-[15px] lg:hover:bg-primary-700/25 lg:hover:text-primary-700">
             <Link
