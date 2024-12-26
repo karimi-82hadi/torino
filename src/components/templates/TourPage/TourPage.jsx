@@ -1,12 +1,18 @@
 import Image from "next/image";
+import { useRouter } from "next/navigation";
+import toast from "react-hot-toast";
 
 import SVGIcon from "@/components/elements/SVGIcon/SVGIcon";
 import TourPageSlider from "@/components/modules/TourPage/TourPageSlider";
+import Loading from "@/components/elements/Loading/Loading";
 
 import { e2p, sp } from "@/utils/numbers";
+import { useAddTourToBasket } from "@/services/mutations";
 
 function TourPage({ tourData }) {
   const { id, title, image, price, endDate, startDate } = tourData;
+  const router = useRouter();
+  const { isPending, mutate } = useAddTourToBasket();
 
   const calculateDate = () => {
     const sDate = new Date(startDate);
@@ -14,6 +20,18 @@ function TourPage({ tourData }) {
 
     const newDate = eDate - sDate;
     return Math.round(newDate / (1000 * 3600 * 24));
+  };
+
+  const bookHandler = () => {
+    mutate(id, {
+      onSuccess: (data) => {
+        toast.success(data.data.message);
+        setTimeout(() => {
+          router.push("/checkout");
+        }, 1000);
+      },
+      onError: (error) => toast.error("خطا در برقراری ارتباط"),
+    });
   };
 
   return (
@@ -64,8 +82,12 @@ function TourPage({ tourData }) {
                   {sp(price)}
                   <span className="text-[14px] text-black"> تومان</span>
                 </p>
-                <button className="w-[204px] rounded-[10px] bg-primary-700 py-[16px] text-[24px] text-white">
-                  رزور و خرید
+                <button
+                  disabled={isPending}
+                  onClick={bookHandler}
+                  className="flex w-[204px] justify-center rounded-[10px] bg-primary-700 py-[16px] text-[24px] text-white"
+                >
+                  {isPending ? <Loading fill="#fff" /> : "رزرو و خرید"}
                 </button>
               </div>
             </div>
@@ -74,8 +96,12 @@ function TourPage({ tourData }) {
             <TourPageSlider tourData={tourData} />
           </div>
           <div className="mt-[30px] flex flex-wrap items-center justify-between gap-x-[30px] gap-y-[15px] lg:hidden">
-            <button className="w-[154px] rounded-[10px] bg-primary-700 py-[9px] text-[20px] text-white">
-              رزور و خرید
+            <button
+              disabled={isPending}
+              onClick={bookHandler}
+              className="flex w-[154px] justify-center rounded-[10px] bg-primary-700 py-[9px] text-[20px] text-white"
+            >
+              {isPending ? <Loading fill="#fff" /> : "رزرو و خرید"}
             </button>
             <p className="text-[24px] font-medium text-complementry">
               {sp(price)}

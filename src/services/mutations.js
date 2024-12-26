@@ -20,4 +20,20 @@ const useUpdateProfile = () => {
   return useMutation({ mutationFn });
 };
 
-export { useSendOtp, useCheckOtp, useUpdateProfile };
+const useAddTourToBasket = () => {
+  const mutationFn = (id) => api.put(`/basket/${id}`);
+  return useMutation({ mutationFn });
+};
+
+const useCheckOut = () => {
+  const mutationFn = (data) => api.post(`/order`, data);
+  return useMutation({ mutationFn });
+};
+
+export {
+  useSendOtp,
+  useCheckOtp,
+  useUpdateProfile,
+  useAddTourToBasket,
+  useCheckOut,
+};
