@@ -1,31 +1,17 @@
-"use client";
+import MainTourPage from "@/components/templates/TourPage/MainTourPage";
 
-import { notFound } from "next/navigation";
+export async function generateMetadata({ params }) {
+  const tour = await fetch(
+    `${process.env.NEXT_PUBLIC_BASE_URL}/tour/${params.tourId}`,
+  ).then((res) => res.json());
 
-import Loading from "@/components/elements/Loading/Loading";
-import TourPage from "@/components/templates/TourPage/TourPage";
-
-import { useGetTour } from "@/services/queries";
+  return {
+    title: `${tour.title} | تورینو`,
+  };
+}
 
 function Page({ params }) {
-  try {
-    const { isPending, data } = useGetTour(params.tourId);
-
-    if (isPending)
-      return (
-        <div className="flex min-h-[800px] justify-center pt-[80px]">
-          <Loading />
-        </div>
-      );
-
-    if (!isPending && !data.data) {
-      return;
-    }
-
-    return <TourPage tourData={data?.data} />;
-  } catch (error) {
-    notFound();
-  }
+  return <MainTourPage params={params} />;
 }
 
 export default Page;
