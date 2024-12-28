@@ -24,7 +24,7 @@ function HomePage() {
           className="min-h-[119px] object-cover lg:h-[350px]"
         />
       </div>
-      <div className="container w-full max-w-[1440px] px-[1.5rem]">
+      <div className="container w-full max-w-[1140px] px-[1.5rem]">
         <HomePageSearch />
         <HomePageTours />
         <div className="mt-[100px]">
@@ -48,7 +48,7 @@ function HomePage() {
         <HomePageSlider />
       </div>
       <div className="mx-[.75rem] mt-[50px] border-t border-black/25 lg:mx-0 lg:mt-[20px]">
-        <div className="container grid max-w-[400px] grid-cols-1 gap-[30px] py-[40px] lg:max-w-full lg:grid-cols-3 lg:px-[1.5rem] lg:py-[20px]">
+        <div className="container grid max-w-[400px] grid-cols-1 gap-[30px] py-[40px] lg:max-w-[1140px] lg:grid-cols-3 lg:px-[1.5rem] lg:py-[20px]">
           <div className="flex items-center">
             <Image
               src={mostEconomicalImage}

@@ -27,9 +27,7 @@ function TourPage({ tourData }) {
     const isAuthorized = getAuthorized();
 
     if (isAuthorized === "Unathorized") {
-      toast.error("برای خرید و رزرو تور باید وارد حساب کاربری خود شوید");
-      router.push("/");
-      return;
+      return toast.error("برای خرید و رزرو تور باید وارد حساب کاربری خود شوید");
     }
 
     mutate(id, {
@@ -45,7 +43,7 @@ function TourPage({ tourData }) {
 
   return (
     <div className="pb-[30px] lg:bg-[#f3f3f3] lg:pb-[80px] lg:pt-[30px]">
-      <div className="container max-w-[1440px]">
+      <div className="container max-w-[1140px]">
         <div className="border-black/20 bg-white p-[30px] lg:rounded-[10px] lg:border">
           <div className="gap-[50px] lg:flex">
             <div>

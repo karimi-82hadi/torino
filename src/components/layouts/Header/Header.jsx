@@ -41,7 +41,7 @@ function Header() {
 
   return (
     <header className="h-[64px] w-full lg:h-[74px]">
-      <div className="container flex h-full w-full max-w-[1440px] items-center">
+      <div className="container flex h-full w-full max-w-[1140px] items-center">
         <div className="flex w-1/3 items-center justify-start lg:hidden">
           <button
             className="flex size-[40px] items-center justify-center"

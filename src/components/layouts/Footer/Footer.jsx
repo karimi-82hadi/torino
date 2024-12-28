@@ -13,7 +13,7 @@ import stateAirline from "@/public/images/footer/state-airline.png";
 function Footer() {
   return (
     <footer className="w-full">
-      <div className="container w-full max-w-[1440px]">
+      <div className="container w-full max-w-[1140px]">
         <div className="grid w-full grid-cols-2 border-t border-dashed border-[#000]/25 pt-[30px] lg:grid-cols-3 lg:border-solid lg:border-[#000]/20">
           <div>
             <h4 className="mb-[15px] text-[22px] font-semibold">تورینو</h4>
