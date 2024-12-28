@@ -6,7 +6,7 @@ import { useRouter } from "next/navigation";
 import { useGetProfile } from "@/services/queries";
 
 function AuthProvider({ children }) {
-  const protectedRoutes = ["/profile"];
+  const protectedRoutes = ["/profile", "/checkout"];
   const router = useRouter();
 
   const { isPending, data } = useGetProfile();
