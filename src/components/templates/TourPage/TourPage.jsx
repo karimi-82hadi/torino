@@ -8,6 +8,7 @@ import Loading from "@/components/elements/Loading/Loading";
 
 import { e2p, sp } from "@/utils/numbers";
 import { useAddTourToBasket } from "@/services/mutations";
+import { getAuthorized } from "@/utils/helper";
 
 function TourPage({ tourData }) {
   const { id, title, image, price, endDate, startDate } = tourData;
@@ -23,6 +24,14 @@ function TourPage({ tourData }) {
   };
 
   const bookHandler = () => {
+    const isAuthorized = getAuthorized();
+
+    if (isAuthorized === "Unathorized") {
+      toast.error("برای خرید و رزرو تور باید وارد حساب کاربری خود شوید");
+      router.push("/");
+      return;
+    }
+
     mutate(id, {
       onSuccess: (data) => {
         toast.success(data.data.message);
