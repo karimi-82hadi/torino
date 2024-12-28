@@ -9,7 +9,7 @@ import { e2p } from "@/utils/numbers";
 
 function TourPageSlider({ tourData }) {
   const {
-    destination,
+    origin,
     fleetVehicle,
     insurance,
     endDate,
@@ -42,7 +42,7 @@ function TourPageSlider({ tourData }) {
             <span>مبدا</span>
           </p>
           <p className="text-[14px] font-medium lg:text-[16px]">
-            {destination.name}
+            {origin.name}
           </p>
         </div>
       </SwiperSlide>
