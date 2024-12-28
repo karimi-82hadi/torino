@@ -26,7 +26,7 @@ function CheckOutPage({ basketData }) {
     toast.success(data?.data?.message);
     queryClient.invalidateQueries({ queryKey: ["user-tours"] });
     setTimeout(() => {
-      router.push("/payment");
+      router.push("/profile/my-tours");
     }, 2000);
   };
 

@@ -75,6 +75,7 @@ export default function RootLayout({ children }) {
               <main>{children}</main>
               <Footer />
             </div>
+            <div id="modal-root" />
             <Toaster />
           </AuthProvider>
         </TanstakQueryProvider>
