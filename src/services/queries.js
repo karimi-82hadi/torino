@@ -44,6 +44,13 @@ function useGetBasket() {
   return useQuery({ queryKey, queryFn });
 }
 
+function useGetFilteredTours(params) {
+  const queryFn = () => api.get(`/tour?${params}`);
+  const queryKey = ["filtered-tours"];
+
+  return useQuery({ queryKey, queryFn, gcTime: 0, staleTime: 0 });
+}
+
 export {
   useGetProfile,
   useGetAllTours,
@@ -51,4 +58,5 @@ export {
   useGetUserTours,
   useGetUserTransactions,
   useGetBasket,
+  useGetFilteredTours,
 };

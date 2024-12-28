@@ -1,6 +1,7 @@
 "use client";
 
 import { Controller, useForm } from "react-hook-form";
+import { useRouter } from "next/navigation";
 import { DatePicker } from "zaman";
 
 import SVGIcon from "@/components/elements/SVGIcon/SVGIcon";
@@ -10,9 +11,10 @@ import { useGetAllTours } from "@/services/queries";
 function HomePageSearch() {
   const { data } = useGetAllTours();
   const { register, handleSubmit, watch, control } = useForm();
+  const router = useRouter();
 
-  const originOption = watch("originId") || "";
-  const destinationOption = watch("destinationId") || "";
+  const originOption = watch("originId") || undefined;
+  const destinationOption = watch("destinationId") || undefined;
 
   const getCities = (type) => {
     if (data) {
@@ -44,7 +46,16 @@ function HomePageSearch() {
   const destination = getCities("destination");
 
   const submitHandler = (form) => {
-    console.log(form);
+    const urlWithParams = new URL(window.location);
+    const { originId, destinationId } = form;
+    form = { ...form.date, originId, destinationId };
+
+    Object.entries(form).forEach(([key, value]) => {
+      if (!value || +value === 999) return;
+      urlWithParams.searchParams.set(key, value);
+    });
+
+    router.push(`/search${urlWithParams.search}`);
   };
 
   return (
@@ -70,7 +81,7 @@ function HomePageSearch() {
                   </option>
                 ))}
               </select>
-              {originOption === "" && (
+              {(!originOption || +originOption === 999) && (
                 <label
                   htmlFor="origin"
                   className="pointer-events-none absolute top-0 flex w-full justify-center gap-[8px] rounded-[12px] border border-black/15 bg-white py-[10.5px] text-black/50 peer-placeholder-shown:opacity-50 lg:justify-start lg:border-none"
@@ -91,7 +102,7 @@ function HomePageSearch() {
                   </option>
                 ))}
               </select>
-              {destinationOption === "" && (
+              {(!destinationOption || +destinationOption === 999) && (
                 <label
                   htmlFor="destination"
                   className="pointer-events-none absolute top-0 flex w-full justify-center gap-[8px] rounded-[12px] border border-black/15 bg-white py-[10.5px] text-black/50 lg:justify-start lg:border-none"
@@ -105,9 +116,6 @@ function HomePageSearch() {
               <Controller
                 control={control}
                 name="date"
-                rules={{
-                  required: true,
-                }}
                 render={({ field: { onChange } }) => (
                   <div className="w-full rounded-[12px] border border-black/15 py-[10.5px] outline-none lg:border-none">
                     <DatePicker
