@@ -17,7 +17,7 @@ function MyToursPage() {
       </div>
     );
   }
-  console.log(data.data);
+  
   return (
     <div className="flex flex-col items-center gap-[20px] pt-[20px] lg:pt-0">
       {data.data.length ? (
